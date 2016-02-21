@@ -10,7 +10,7 @@ formfix.js                   ||| form            | fix, data-fix                
  || method.net.formfix.js   |  form          | method                     | Allow additional HTTP methods (PUT, PATCH, DELETE)         
  || xhr.net.formfix.js   |  form          |                      | Network IO engine for XHR; with consistent events         
  | tpl.formfix.js          ||                 |                                 |   
- || for.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
+ || for.tpl.formfix.js   |  form -> any          | for, data-for -> id                     | Allow `data-for` & `for` attr on form-tag         
  || template.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
  | inputs.formfix.js          ||                 |                                 |   
  || submit.inputs.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
