@@ -59,7 +59,15 @@
   <precog>
     
     <script type="text/javascript">
-      var formfix = { net: {} }
+      var formfix = { core: {}, net: {} }
+
+      formfix.core.encodeQueryData = function(data)
+      {
+         var ret = [];
+         for (var d in data)
+            ret.push(encodeURIComponent(d) + "=" + encodeURIComponent(data[d]));
+         return ret.join("&");
+      }
 
       // mock apis:
       // http://demo4555572.mockable.io/user/12 
@@ -111,12 +119,14 @@
       // patch: http://stackoverflow.com/questions/11461414/ajax-json-doesnt-get-sent-in-patch-only
       // get & post & put: http://blog.garstasio.com/you-dont-need-jquery/ajax/
       formfix.net.xhr = function( path, method, success, error, data ) {
+        method = method.toUpperCase() || 'GET'
+        data = data || {foo: 'bar', blah: 'asdf'}
+        
         var xhr = new XMLHttpRequest()
-        method = method || 'get'
         xhr.onreadystatechange = function()
         {
             if (xhr.readyState === XMLHttpRequest.DONE) {
-                if (xhr.status === 200) {
+                if (xhr.status === 200) { // xhr.readyState == 4 && xhr.status == 200?
                     if (success) success(JSON.parse(xhr.responseText))
                 } else {
                     if (error) error(xhr)
@@ -124,16 +134,34 @@
             }
         }
 
+
+
         // prepare data depends on method
-        var preparedData = data
+        var preparedData = ''
+        if (method == 'GET') {
+          // require param be in path (?)
+        }
+        else if (method == 'POST' || method == 'PUT' || method == 'PATCH') {
+          // require param be in path (?)
+          preparedData = formfix.core.encodeQueryData(data);
+        }
+        else if (method == 'DELETE') {
+          // require param be in path (?)
+        }
+
+        // open it
+        xhr.open(method, encodeURI(path), true)
 
         // use header per method
-        var header = ''
+        if (method == 'POST' || method == 'PUT' || method == 'PATCH') {
+          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+        }
 
 
-        xhr.open(method.toUpperCase(), path, true)
+
         xhr.send(preparedData)
-    }
+      }
 
     </script>
   </cog>
