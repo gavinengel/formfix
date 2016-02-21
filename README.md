@@ -11,11 +11,8 @@ formfix.js                   ||| form            | fix, data-fix                
  || xhr.net.formfix.js   |  form          |                      | Network IO engine for XHR; with consistent events         
  | tpl.formfix.js          ||                 |                                 |   
  || for.tpl.formfix.js   |  form -> any          | for, data-for -> id                     | Allow `data-for` & `for` attr on form-tag         
- || template.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
+ || template.tpl.formfix.js   |  any -> template          | template, data-template -> id                     | Allow `data-template` & `template` attr on any-tag         
  | inputs.formfix.js          ||                 |                                 |   
  || submit.inputs.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
  || checkbox.inputs.formfix.js |  input          | type=checkbox                   | Allow unchecked to be sent on submit                   
  || radio.inputs.formfix.js    |  input          | type=radio                      | Allow `data-current` & `current` for easier templating 
-
-|for.tpl.formfix.js       | form -> any     | for, data-for -> id             | Allow `data-for` & `for` attr on form-tag              
-|tpl.tpl.formfix.js       | any -> template | template, data-template -> id   | Allow `data-template` & `template` attr on any-tag              
