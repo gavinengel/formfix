@@ -5,9 +5,6 @@
 
 | File                 | Group  | Tags  | Attrs                 | Description                                            |
 |----------------------|--------|-------|-----------------------|--------------------------------------------------------|
-| core.formfix.js      | core   |       |                       | Core Formfix polyfills                                 |
-| input.formfix.js     | inputs |       |                       | Input-related Formfix polyfills                        |
-|----------------------|--------|-------|-----------------------|--------------------------------------------------------|
 | xhr.formfix.js       | net    | form           |                       | Network IO engine for XHR; with consistent events      |
 | method.formfix.js    | net    | form           | method                | Allow additional HTTP methods (PUT, PATCH, DELETE)     |
 | for.formfix.js       | tpl    | form -> any    | for, data-for -> id   | Allow `data-for` & `for` attr on form-tag              |
