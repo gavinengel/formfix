@@ -26,6 +26,7 @@
     <h3>Use HTTP POST</h3>
     <form class="fix" action="http://demo4555572.mockable.io/expense/" method="POST">
         <input type="text" name="textInput" value="using POST" />
+        <input type="text" name="textInput2" value="using POST2" />
         <input type="submit" name="submitInput" />
     </form>
 </div>
@@ -34,6 +35,7 @@
     <h3>Use HTTP PUT</h3>
     <form class="fix" action="http://demo4555572.mockable.io/expense/12" method="PUT">
         <input type="text" name="textInput" value="using PUT" />
+        <input type="text" name="textInput2" value="using PUT2" />
         <input type="submit" name="submitInput" />
     </form>
 </div>
@@ -42,6 +44,7 @@
     <h3>Use HTTP PATCH</h3>
     <form class="fix" action="http://demo4555572.mockable.io/user/12" method="PATCH">
         <input type="text" name="textInput" value="using PATCH" />
+        <input type="text" name="textInput2" value="using PATCH2" />
         <input type="submit" name="submitInput" />
     </form>
 </div>
@@ -101,7 +104,7 @@
 
         forms[i].addEventListener("submit", function(e) {
           e.preventDefault();
-          formfix.net.xhr( e.target.attributes.action.value, e.target.attributes.method.value, testSuccess, testError )
+          formfix.net.xhr( e.target.attributes.action.value, e.target.attributes.method.value, testSuccess, testError, e.target )
           console.log('attr', e.target.attributes);
 
         });
@@ -118,9 +121,8 @@
       // options: http://stackoverflow.com/questions/16568735/options-request-instead-of-put-in-xmlhttprequest
       // patch: http://stackoverflow.com/questions/11461414/ajax-json-doesnt-get-sent-in-patch-only
       // get & post & put: http://blog.garstasio.com/you-dont-need-jquery/ajax/
-      formfix.net.xhr = function( path, method, success, error, data ) {
+      formfix.net.xhr = function( path, method, success, error, form ) {
         method = method.toUpperCase() || 'GET'
-        data = data || {foo: 'bar', blah: 'asdf'}
         
         var xhr = new XMLHttpRequest()
         xhr.onreadystatechange = function()
@@ -134,7 +136,7 @@
             }
         }
 
-
+/*
 
         // prepare data depends on method
         var preparedData = ''
@@ -148,21 +150,29 @@
         else if (method == 'DELETE') {
           // require param be in path (?)
         }
-
+*/
         // open it
         xhr.open(method, encodeURI(path), true)
-
+/*
         // use header per method
         if (method == 'POST' || method == 'PUT' || method == 'PATCH') {
           xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
         }
+*/
 
 
+        xhr.send(new FormData(form))
 
-        xhr.send(preparedData)
+        return false
       }
+/*
 
+var formElement = document.querySelector("form");
+var request = new XMLHttpRequest();
+request.open("POST", "submitform.php");
+request.send(new FormData(formElement));
+*/
     </script>
   </cog>
 </self>
