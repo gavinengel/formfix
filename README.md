@@ -5,7 +5,7 @@
 
 All   | Poly Group | Poly      | HTML-Tags       | Attrs                           | Description                                            
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
-formfix.js                   |||                 |                                 |                                   
+formfix.js                   ||| form            | fix, data-fix                   |                                   
  | net.formfix.js             ||                 |                                 |  
  || method.net.formfix.js   |  form          | method                     | Allow additional HTTP methods (PUT, PATCH, DELETE)         
  || xhr.net.formfix.js   |  form          |                      | Network IO engine for XHR; with consistent events         
