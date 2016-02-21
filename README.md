@@ -8,7 +8,7 @@ All   | Poly Group | Poly      | HTML-Tags       | Attrs                        
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
 formfix.js                   ||| form            | fix, data-fix                   |                                   
  | net.formfix.js             ||                 |                                 |  
- || method.net.formfix.js   |  form          | method                     | Allow additional HTTP methods (PUT, PATCH, DELETE)         
+ || method.net.formfix.js   |  form          | method                     | Allow additional HTTP methods (PUT, PATCH, DELETE, OPTIONS)         
  || xhr.net.formfix.js   |  form          |                      | Network IO engine for XHR; with consistent events         
  | tpl.formfix.js          ||                 |                                 |   
  || for.tpl.formfix.js   |  form -> any          | for, data-for -> id                     | Allow `data-for` & `for` attr on form-tag         

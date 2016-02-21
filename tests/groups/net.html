@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Formfix Group: Net</title>
+
+  <adorn>
+    <foundation></foundation>
+    <finish></finish>
+  </adorn>
+
+
+</head>
+<body>
+
+
+<p>asdfasdf</p>
+<div>
+    <h3>Use HTTP GET</h3>
+    <form class="fix" action="http://demo4555572.mockable.io/expense/12" method="GET">
+        <input type="text" name="textInput" value="using GET" />
+        <input type="submit" name="submitInput" />
+    </form>
+</div>
+
+<div>
+    <h3>Use HTTP POST</h3>
+    <form class="fix" action="http://demo4555572.mockable.io/expense/" method="POST">
+        <input type="text" name="textInput" value="using POST" />
+        <input type="submit" name="submitInput" />
+    </form>
+</div>
+
+<div>
+    <h3>Use HTTP PUT</h3>
+    <form class="fix" action="http://demo4555572.mockable.io/expense/12" method="PUT">
+        <input type="text" name="textInput" value="using PUT" />
+        <input type="submit" name="submitInput" />
+    </form>
+</div>
+
+<div>
+    <h3>Use HTTP PATCH</h3>
+    <form class="fix" action="http://demo4555572.mockable.io/user/12" method="PATCH">
+        <input type="text" name="textInput" value="using PATCH" />
+        <input type="submit" name="submitInput" />
+    </form>
+</div>
+
+<div>
+    <h3>Use HTTP DELETE</h3>
+    <form class="fix" action="http://demo4555572.mockable.io/expense/12" method="DELETE">
+        <input type="text" name="textInput" value="using DELETE" />
+        <input type="submit" name="submitInput" />
+    </form>
+</div>
+
+</body>
+<self>
+  <precog>
+    
+    <script type="text/javascript">
+      var formfix = { net: {} }
+
+      // mock apis:
+      // http://demo4555572.mockable.io/user/12 
+      // http://todos.stoplight.io/
+
+      testSuccess = function(e) {
+        console.log('begin success')
+        console.log(e)
+        console.log('end success')
+      }
+
+      testError = function(e) {
+        console.log('begin error')
+        console.log(e)
+        console.log('end error')
+      }
+    </script>
+
+  </precog>
+  <cog>
+
+    
+    <script type="text/javascript">
+
+      /* polyfill: method.net.formfix.js */
+      var forms = document.body.querySelectorAll("form.fix");    
+      console.log(forms)
+
+      for (i = 0; i < forms.length; ++i) {
+        console.log(i+' ...');
+
+        forms[i].addEventListener("submit", function(e) {
+          e.preventDefault();
+          formfix.net.xhr( e.target.attributes.action.value, e.target.attributes.method.value, testSuccess, testError )
+          console.log('attr', e.target.attributes);
+
+        });
+
+
+      }
+      console.log('done.')
+
+    </script>
+
+    <script type="text/javascript">
+      /* polyfill: xhr.net.formfix.js */
+      formfix.net.xhr = function( path, method, success, error ) {
+        var xhr = new XMLHttpRequest()
+        method = method || 'get'
+        console.log('using method: '+ method)
+        xhr.onreadystatechange = function()
+        {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    if (success) success(JSON.parse(xhr.responseText))
+                } else {
+                    if (error) error(xhr)
+                }
+            }
+        }
+        xhr.open(method.toUpperCase(), path, true)
+        xhr.send()
+    }
+
+    </script>
+  </cog>
+</self>
+</html>
