@@ -6,8 +6,8 @@
 All   | Group      | Poly      | Tags            | Attrs                           | Description                                            
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
 formfix.js                   |||                 |                                 | all formfix polyfills                                  
+| core.formfix.js             ||                 |                                 | core formfix polyfills 
 
-| core.formfix.js      |                 |                                 | core formfix polyfills 
 |net.formfix.js       |                 |                                 | net formfix polyfills                                  
 |tpl.formfix.js       |                 |                                 | tpl formfix polyfills                                  
 |for.tpl.formfix.js       | form -> any     | for, data-for -> id             | Allow `data-for` & `for` attr on form-tag              
