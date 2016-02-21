@@ -11,7 +11,7 @@ formfix.js                   ||| form            | fix, data-fix                
  || xhr.net.formfix.js   |  form          |                      | Network IO engine for XHR; with consistent events         
  | tpl.formfix.js          ||                 |                                 |   
  || for.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
- || xyz.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
+ || template.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
  | inputs.formfix.js          ||                 |                                 |   
  || submit.inputs.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
  || checkbox.inputs.formfix.js |  input          | type=checkbox                   | Allow unchecked to be sent on submit                   
