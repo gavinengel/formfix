@@ -3,7 +3,7 @@
 ### A collection of polyfills to embiggen the HTML form-tag
 
 
-All   | Group      | Poly      | HTML-Tags       | Attrs                           | Description                                            
+All   | Poly Group | Poly      | HTML-Tags       | Attrs                           | Description                                            
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
 formfix.js                   |||                 |                                 |                                   
  | net.formfix.js             ||                 |                                 |  
