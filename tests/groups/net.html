@@ -106,10 +106,13 @@
 
     <script type="text/javascript">
       /* polyfill: xhr.net.formfix.js */
-      formfix.net.xhr = function( path, method, success, error ) {
+      // delete: http://stackoverflow.com/questions/9156334/issuing-delete-request-using-xmlhttprequest
+      // options: http://stackoverflow.com/questions/16568735/options-request-instead-of-put-in-xmlhttprequest
+      // patch: http://stackoverflow.com/questions/11461414/ajax-json-doesnt-get-sent-in-patch-only
+      // get & post & put: http://blog.garstasio.com/you-dont-need-jquery/ajax/
+      formfix.net.xhr = function( path, method, success, error, data ) {
         var xhr = new XMLHttpRequest()
         method = method || 'get'
-        console.log('using method: '+ method)
         xhr.onreadystatechange = function()
         {
             if (xhr.readyState === XMLHttpRequest.DONE) {
@@ -120,8 +123,16 @@
                 }
             }
         }
+
+        // prepare data depends on method
+        var preparedData = data
+
+        // use header per method
+        var header = ''
+
+
         xhr.open(method.toUpperCase(), path, true)
-        xhr.send()
+        xhr.send(preparedData)
     }
 
     </script>
