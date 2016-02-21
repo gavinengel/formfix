@@ -5,11 +5,8 @@
 
 All   | Group      | Poly      | Tags            | Attrs                           | Description                                            
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
+formfix.js                   |||                 |                                 | all formfix polyfills                                  
 
-
-
-
-formfix.js           |                 |                                 | all formfix polyfills                                  
 | core.formfix.js      |                 |                                 | core formfix polyfills 
 |net.formfix.js       |                 |                                 | net formfix polyfills                                  
 |tpl.formfix.js       |                 |                                 | tpl formfix polyfills                                  
