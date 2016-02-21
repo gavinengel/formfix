@@ -7,9 +7,9 @@ All   | Group      | Poly      | Tags            | Attrs                        
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
 formfix.js                   |||                 |                                 | all formfix polyfills                                  
  | core.formfix.js            ||                 |                                 | core formfix polyfills 
+ | net.formfix.js            ||                 |                                 | net formfix polyfills 
+ | tpl.formfix.js            ||                 |                                 | tpl formfix polyfills 
 
-|net.formfix.js       |                 |                                 | net formfix polyfills                                  
-|tpl.formfix.js       |                 |                                 | tpl formfix polyfills                                  
 |for.tpl.formfix.js       | form -> any     | for, data-for -> id             | Allow `data-for` & `for` attr on form-tag              
 |tpl.tpl.formfix.js       | any -> template | template, data-template -> id   | Allow `data-template` & `template` attr on any-tag              
 |inputs.formfix.js    |                 |                                 | tpl formfix polyfills                                  
