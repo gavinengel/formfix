@@ -2,6 +2,7 @@
 
 ### A collection of polyfills to improve HTML form-tag and related tags
 
+Choose your own adventure:
 
 All   | Poly Group | Poly      | HTML-Tags       | Attrs                           | Description                                            
 ------|------------|-----------|-----------------|---------------------------------|----------------------------------------------------
