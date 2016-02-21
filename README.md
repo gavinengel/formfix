@@ -1,6 +1,6 @@
 # Formfix Framework
 
-### A collection of polyfills to embiggen the HTML form-tag
+### A collection of polyfills to improve HTML form-tag and related tags
 
 
 All   | Poly Group | Poly      | HTML-Tags       | Attrs                           | Description                                            
@@ -9,6 +9,9 @@ formfix.js                   ||| form            | fix, data-fix                
  | net.formfix.js             ||                 |                                 |  
  || method.net.formfix.js   |  form          | method                     | Allow additional HTTP methods (PUT, PATCH, DELETE)         
  || xhr.net.formfix.js   |  form          |                      | Network IO engine for XHR; with consistent events         
+ | tpl.formfix.js          ||                 |                                 |   
+ || for.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
+ || xyz.tpl.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
  | inputs.formfix.js          ||                 |                                 |   
  || submit.inputs.formfix.js   |  input          | type=submit                     | Disable submit on form send; enable on receive         
  || checkbox.inputs.formfix.js |  input          | type=checkbox                   | Allow unchecked to be sent on submit                   
