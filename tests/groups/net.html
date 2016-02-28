@@ -104,7 +104,13 @@
 
         forms[i].addEventListener("submit", function(e) {
           e.preventDefault();
-          formfix.net.xhr( e.target.attributes.action.value, e.target.attributes.method.value, testSuccess, testError, e.target )
+          formfix.net.xhr({
+            url:e.target.attributes.action.value, 
+            method: e.target.attributes.method.value, 
+            success: testSuccess, 
+            error: testError, 
+            form: e.target 
+          })
           console.log('attr', e.target.attributes);
 
         });
@@ -117,12 +123,14 @@
 
     <script type="text/javascript">
       /* polyfill: xhr.net.formfix.js */
-      // delete: http://stackoverflow.com/questions/9156334/issuing-delete-request-using-xmlhttprequest
-      // options: http://stackoverflow.com/questions/16568735/options-request-instead-of-put-in-xmlhttprequest
-      // patch: http://stackoverflow.com/questions/11461414/ajax-json-doesnt-get-sent-in-patch-only
-      // get & post & put: http://blog.garstasio.com/you-dont-need-jquery/ajax/
-      formfix.net.xhr = function( path, method, success, error, form ) {
-        method = method.toUpperCase() || 'GET'
+      // use this? https://github.com/Raynos/xhr
+
+      formfix.net.xhr = function( params, undef) {
+        path = params.url || ''
+        method = params.method.toUpperCase() || 'GET'
+        success = params.success || undef
+        error = params.error || undef
+        form = params.form || undef
         
         var xhr = new XMLHttpRequest()
         xhr.onreadystatechange = function()
@@ -136,43 +144,14 @@
             }
         }
 
-/*
-
-        // prepare data depends on method
-        var preparedData = ''
-        if (method == 'GET') {
-          // require param be in path (?)
-        }
-        else if (method == 'POST' || method == 'PUT' || method == 'PATCH') {
-          // require param be in path (?)
-          preparedData = formfix.core.encodeQueryData(data);
-        }
-        else if (method == 'DELETE') {
-          // require param be in path (?)
-        }
-*/
         // open it
         xhr.open(method, encodeURI(path), true)
-/*
-        // use header per method
-        if (method == 'POST' || method == 'PUT' || method == 'PATCH') {
-          xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-
-        }
-*/
-
 
         xhr.send(new FormData(form))
 
         return false
       }
-/*
 
-var formElement = document.querySelector("form");
-var request = new XMLHttpRequest();
-request.open("POST", "submitform.php");
-request.send(new FormData(formElement));
-*/
     </script>
   </cog>
 </self>
